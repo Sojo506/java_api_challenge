@@ -14,13 +14,10 @@ public abstract class SWAPIClient {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(String.format(url, index)))
                 .build();
-        System.out.println("request = " + request);
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println("response = " + response);
 
         String json = response.body();
-        System.out.println("JSON: " + json);
         return json;
     }
 }

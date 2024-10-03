@@ -6,7 +6,6 @@ import com.google.gson.GsonBuilder;
 
 public abstract class JsonUtils {
     private static Gson gson = new GsonBuilder()
-            .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
             .setPrettyPrinting()
             .create();
 

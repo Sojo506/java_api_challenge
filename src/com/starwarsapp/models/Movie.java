@@ -1,5 +1,7 @@
 package com.starwarsapp.models;
 
+import com.starwarsapp.utils.MovieSWAPI;
+
 public class Movie {
     private String title;
     private String plot;
@@ -16,6 +18,14 @@ public class Movie {
         this.director = director;
         this.producer = producer;
         this.releaseDate = releaseDate;
+    }
+
+    public Movie(MovieSWAPI movieSWAPI) {
+        this.title = movieSWAPI.title();
+        this.plot = movieSWAPI.opening_crawl();
+        this.director = movieSWAPI.director();
+        this.producer = movieSWAPI.producer();
+        this.releaseDate = movieSWAPI.release_date();
     }
 
     public String getTitle() {
@@ -42,9 +52,9 @@ public class Movie {
     public String toString() {
         return "{" +
                 "title='" + title + '\'' +
-                ", plot='" + plot + '\'' +
+                ", plot='" + plot.substring(0, 50) + "..." + '\'' +
                 ", director='" + director + '\'' +
-                ", producer='" + producer.substring(0, 10) + "..." + '\'' +
+                ", producer='" + producer + '\'' +
                 ", releaseDate='" + releaseDate + '\'' +
                 '}';
     }
